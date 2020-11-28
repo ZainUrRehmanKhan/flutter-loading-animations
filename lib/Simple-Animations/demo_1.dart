@@ -43,14 +43,15 @@ class _Demo1State extends State<Demo1>
 
     _lineHeightController = Tween(end: 0.0, begin: 1.0).animate(_controller);
 
-    return AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          return ScaleTransition(
-              scale: _scaleController,
-              child: Container(
-                  width: widget.size,
-                  height: widget.size,
+    return Center(
+      child: Container(
+        width: widget.size,
+        height: widget.size,
+        child: AnimatedBuilder(
+            animation: _controller,
+            builder: (context, child) {
+              return ScaleTransition(
+                  scale: _scaleController,
                   child: Stack(
                     children: [
                       lineContainer(
@@ -74,8 +75,10 @@ class _Demo1State extends State<Demo1>
                           lineHeight:
                               widget.lineHeight * _lineHeightController.value),
                     ],
-                  )));
-        });
+                  ));
+            }),
+      ),
+    );
   }
 
   @override
