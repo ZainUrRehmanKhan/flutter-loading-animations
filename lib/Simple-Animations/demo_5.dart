@@ -6,7 +6,7 @@ class Demo5 extends StatefulWidget {
   final double size;
   final List<Color> colors;
 
-  Demo5({@required this.duration, @required this.size, this.colors});
+  Demo5({this.duration = const Duration(milliseconds: 1000), @required this.size, this.colors});
 
   @override
   _Demo5State createState() => _Demo5State();
@@ -79,7 +79,7 @@ class _Demo5State extends State<Demo5> with TickerProviderStateMixin {
           weight: 1)
     ]).animate(
       CurvedAnimation(
-          curve: Interval(0.2, 0.9, curve: Curves.easeOut),
+          curve: Interval(0.2, 1.0, curve: Curves.easeOut),
           parent: _controller),
     );
 

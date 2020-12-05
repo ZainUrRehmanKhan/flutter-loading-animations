@@ -12,7 +12,7 @@ class Demo3 extends StatefulWidget {
   final bool reverse;
   final typeDemo3 type;
 
-  Demo3({@required this.duration, @required this.size, @required this.color, this.reverse = false, this.type = typeDemo3.simple});
+  Demo3({this.duration = const Duration(milliseconds: 1000), @required this.size, @required this.color, this.reverse = false, this.type = typeDemo3.simple});
 
   @override
   _Demo3State createState() => _Demo3State();

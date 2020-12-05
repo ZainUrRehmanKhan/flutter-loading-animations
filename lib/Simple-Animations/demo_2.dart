@@ -5,7 +5,7 @@ class Demo2 extends StatefulWidget {
   final double height;
   final Color color;
 
-  Demo2({@required this.duration, @required this.height, @required this.color});
+  Demo2({this.duration = const Duration(milliseconds: 1000), @required this.height, @required this.color});
 
   @override
   _Demo2State createState() => _Demo2State();
