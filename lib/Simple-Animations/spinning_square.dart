@@ -1,18 +1,18 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class Demo7 extends StatefulWidget {
+class SpinningSquare extends StatefulWidget {
   final Duration duration;
   final double size;
   final Color color;
 
-  Demo7({this.duration = const Duration(milliseconds: 3000), @required this.size, this.color});
+  SpinningSquare({this.duration = const Duration(milliseconds: 3000), @required this.size, @required this.color});
 
   @override
-  _Demo7State createState() => _Demo7State();
+  _SpinningSquareState createState() => _SpinningSquareState();
 }
 
-class _Demo7State extends State<Demo7> with SingleTickerProviderStateMixin {
+class _SpinningSquareState extends State<SpinningSquare> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleAnimation;
   Animation<double> _rotationAnimation;

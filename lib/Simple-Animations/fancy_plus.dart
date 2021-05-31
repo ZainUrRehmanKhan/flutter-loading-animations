@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Demo1 extends StatefulWidget {
+class FancyPlus extends StatefulWidget {
   final Color color;
   final Duration duration;
   final double size;
@@ -9,7 +9,7 @@ class Demo1 extends StatefulWidget {
   final Cubic scalingCurve;
   final BorderRadius lineBorderRadius;
 
-  Demo1(
+  FancyPlus(
       {@required this.color,
       @required this.size,
       @required this.lineHeight,
@@ -19,10 +19,10 @@ class Demo1 extends StatefulWidget {
       this.lineBorderRadius = const BorderRadius.all(Radius.circular(20))});
 
   @override
-  _Demo1State createState() => _Demo1State();
+  _FancyPlusState createState() => _FancyPlusState();
 }
 
-class _Demo1State extends State<Demo1>
+class _FancyPlusState extends State<FancyPlus>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleController;

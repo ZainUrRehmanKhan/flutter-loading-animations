@@ -2,6 +2,29 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+// Column(
+// children: [
+// Container(
+// height: 100,
+// child: Demo4(
+// duration: Duration(milliseconds: 1000),
+// size: 50,
+// loadingColorDark: Colors.blueGrey,
+// loadingColorLight: Colors.lightBlue,
+// afterLoadingColorDark: Colors.blueGrey,
+// afterLoadingColorLight: Colors.lightBlue,
+// future: Future.delayed(
+// Duration(milliseconds: 5000),
+// ),
+// ),
+// ),
+// SizedBox(
+// height: 15,
+// ),
+// Text('Demo4')
+// ],
+// ),
+
 class Demo4 extends StatefulWidget {
   final Duration duration;
   final double size;

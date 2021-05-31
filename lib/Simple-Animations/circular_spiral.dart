@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 
-enum typeDemo3{
-  simple,
-  heavy
-}
+enum CircularSpiralType { simple, heavy }
 
-class Demo3 extends StatefulWidget {
+class CircularSpiral extends StatefulWidget {
   final Duration duration;
   final double size;
   final Color color;
   final bool reverse;
-  final typeDemo3 type;
+  final CircularSpiralType type;
 
-  Demo3({this.duration = const Duration(milliseconds: 1000), @required this.size, @required this.color, this.reverse = false, this.type = typeDemo3.simple});
+  CircularSpiral({
+    this.duration = const Duration(milliseconds: 1000),
+    @required this.size,
+    @required this.color,
+    this.reverse = false,
+    this.type = CircularSpiralType.simple,
+  });
 
   @override
-  _Demo3State createState() => _Demo3State();
+  _CircularSpiralState createState() => _CircularSpiralState();
 }
 
-class _Demo3State extends State<Demo3> with SingleTickerProviderStateMixin {
+class _CircularSpiralState extends State<CircularSpiral>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleAnimation;
   Animation<double> _rotateAnimation;
@@ -59,17 +63,16 @@ class _Demo3State extends State<Demo3> with SingleTickerProviderStateMixin {
                       bottom: 0.0,
                       child: customCircle(
                           scaleAnimationValue: _scaleAnimation.value)),
-                  if(widget.type == typeDemo3.heavy)
+                  if (widget.type == CircularSpiralType.heavy)
                     Positioned(
                         left: 0.0,
                         child: customCircle(
-                            scaleAnimationValue: 1.0 - _scaleAnimation.value))
-                  ,
-                  if(widget.type == typeDemo3.heavy)
-                  Positioned(
-                      right: 0.0,
-                      child: customCircle(
-                          scaleAnimationValue: _scaleAnimation.value)),
+                            scaleAnimationValue: 1.0 - _scaleAnimation.value)),
+                  if (widget.type == CircularSpiralType.heavy)
+                    Positioned(
+                        right: 0.0,
+                        child: customCircle(
+                            scaleAnimationValue: _scaleAnimation.value)),
                 ],
               ),
             ),

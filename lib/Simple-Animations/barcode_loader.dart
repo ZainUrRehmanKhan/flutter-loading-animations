@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Demo2 extends StatefulWidget {
+class BarcodeLoader extends StatefulWidget {
   final Duration duration;
   final double height;
   final Color color;
 
-  Demo2({this.duration = const Duration(milliseconds: 1000), @required this.height, @required this.color});
+  BarcodeLoader({this.duration = const Duration(milliseconds: 1000), @required this.height, @required this.color});
 
   @override
-  _Demo2State createState() => _Demo2State();
+  _BarcodeLoaderState createState() => _BarcodeLoaderState();
 }
 
-class _Demo2State extends State<Demo2> with SingleTickerProviderStateMixin {
+class _BarcodeLoaderState extends State<BarcodeLoader> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleContainer1Animation;
   Animation<double> _scaleContainer2Animation;

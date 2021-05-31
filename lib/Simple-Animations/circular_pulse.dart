@@ -2,18 +2,18 @@ import 'dart:ui';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
-class Demo6 extends StatefulWidget {
+class CircularPulse extends StatefulWidget {
   final Duration duration;
   final double size;
   final Color color;
 
-  Demo6({this.duration = const Duration(milliseconds: 1000), @required this.size, this.color});
+  CircularPulse({this.duration = const Duration(milliseconds: 1000), @required this.size, @required this.color});
 
   @override
-  _Demo6State createState() => _Demo6State();
+  _CircularPulseState createState() => _CircularPulseState();
 }
 
-class _Demo6State extends State<Demo6> with SingleTickerProviderStateMixin {
+class _CircularPulseState extends State<CircularPulse> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleAnimation;
 
