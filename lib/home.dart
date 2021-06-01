@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                   Duration(milliseconds: 5000),
                 ),
               ),
-              'Spinning Square',
+              'Future Dots',
             )
           ],
           physics: BouncingScrollPhysics(),
