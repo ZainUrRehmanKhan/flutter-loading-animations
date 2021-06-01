@@ -2,30 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-// Column(
-// children: [
-// Container(
-// height: 100,
-// child: Demo4(
-// duration: Duration(milliseconds: 1000),
-// size: 50,
-// loadingColorDark: Colors.blueGrey,
-// loadingColorLight: Colors.lightBlue,
-// afterLoadingColorDark: Colors.blueGrey,
-// afterLoadingColorLight: Colors.lightBlue,
-// future: Future.delayed(
-// Duration(milliseconds: 5000),
-// ),
-// ),
-// ),
-// SizedBox(
-// height: 15,
-// ),
-// Text('Demo4')
-// ],
-// ),
-
-class Demo4 extends StatefulWidget {
+class FutureDots extends StatefulWidget {
   final Duration duration;
   final double size;
   final Color loadingColorLight,
@@ -34,7 +11,7 @@ class Demo4 extends StatefulWidget {
       afterLoadingColorDark;
   final Future future;
 
-  Demo4(
+  FutureDots(
       {@required this.duration,
       @required this.size,
       @required this.loadingColorDark,
@@ -44,10 +21,10 @@ class Demo4 extends StatefulWidget {
       @required this.future});
 
   @override
-  _Demo4State createState() => _Demo4State();
+  _FutureDotsState createState() => _FutureDotsState();
 }
 
-class _Demo4State extends State<Demo4> with TickerProviderStateMixin {
+class _FutureDotsState extends State<FutureDots> with TickerProviderStateMixin {
   AnimationController _controller;
   AnimationController _doneController;
   Animation<Alignment> _dots1Animation;

@@ -15,7 +15,7 @@ class FancyPlus extends StatefulWidget {
       @required this.lineHeight,
       @required this.lineWidth,
       this.scalingCurve = Curves.easeOut,
-      this.duration = const Duration(milliseconds: 800),
+      this.duration = const Duration(milliseconds: 900),
       this.lineBorderRadius = const BorderRadius.all(Radius.circular(20))});
 
   @override

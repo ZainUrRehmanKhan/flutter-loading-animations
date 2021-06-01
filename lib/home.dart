@@ -1,15 +1,13 @@
+import 'package:loading_animation/Simple-Animations/future_dots.dart';
 import 'package:loading_animation/Simple-Animations/spinning_square.dart';
 import 'package:loading_animation/Simple-Animations/circular_spiral.dart';
 import 'package:loading_animation/Simple-Animations/barcode_loader.dart';
 import 'package:loading_animation/Simple-Animations/fancy_plus.dart';
 import 'package:loading_animation/Simple-Animations/three_dots.dart';
+import 'Simple-Animations/circular_pulse.dart';
 import 'package:flutter/material.dart';
 
-import 'Simple-Animations/circular_pulse.dart';
-
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -17,122 +15,101 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: GridView(
+    return SafeArea(
+      child: Scaffold(
+        body: GridView(
           children: [
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: FancyPlus(
-                      color: Colors.brown,
-                      size: 50,
-                      lineHeight: 15,
-                      lineWidth: 3),
+            customCard(
+                FancyPlus(
+                  color: Colors.brown,
+                  size: 40,
+                  lineHeight: 15,
+                  lineWidth: 3,
                 ),
-                SizedBox(
-                  height: 15,
+                'Fancy Plus'),
+            customCard(
+                BarcodeLoader(
+                  height: 30,
+                  color: Colors.lightBlue,
                 ),
-                Text('Fancy Plus')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: BarcodeLoader(height: 50, color: Colors.lightBlue),
+                'Barcode Loader'),
+            customCard(
+                CircularSpiral(
+                  size: 40,
+                  color: Colors.blueGrey,
+                  type: CircularSpiralType.simple,
                 ),
-                SizedBox(
-                  height: 15,
+                'Circular Spiral Double'),
+            customCard(
+                CircularSpiral(
+                  size: 40,
+                  color: Colors.blueGrey,
+                  type: CircularSpiralType.heavy,
                 ),
-                Text('Barcode Loader')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: CircularSpiral(
-                    ///
-                    /// TODO Solve Size Issue
-                    ///
-                    size: 20,
-                    color: Colors.blueGrey,
-                    type: CircularSpiralType.simple,
-                  ),
+                'Circular Spiral Triple'),
+            customCard(
+                ThreeDots(
+                  size: 40,
+                  colors: [Colors.blue, Colors.red, Colors.yellow],
                 ),
-                SizedBox(
-                  height: 15,
+                'Three Dots'),
+            customCard(
+                CircularPulse(
+                  size: 40,
+                  color: Colors.grey,
                 ),
-                Text('Circular Spiral Double')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: CircularSpiral(
-                    size: 50,
-                    color: Colors.blueGrey,
-                    type: CircularSpiralType.heavy,
-                  ),
+                'Circular Pulse'),
+            customCard(
+                SpinningSquare(
+                  size: 40,
+                  color: Colors.lightBlueAccent,
                 ),
-                SizedBox(
-                  height: 15,
+                'Spinning Square'),
+            customCard(
+              FutureDots(
+                duration: Duration(milliseconds: 1000),
+                size: 50,
+                loadingColorDark: Colors.blueGrey,
+                loadingColorLight: Colors.lightBlue,
+                afterLoadingColorDark: Colors.blueGrey,
+                afterLoadingColorLight: Colors.lightBlue,
+                future: Future.delayed(
+                  Duration(milliseconds: 5000),
                 ),
-                Text('Circular Spiral Triple')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: ThreeDots(
-                    size: 50,
-                    colors: [Colors.blue, Colors.red, Colors.yellow],
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text('Three Dots')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: CircularPulse(
-                    size: 50,
-                    color: Colors.grey,
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text('Circular Pulse')
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 100,
-                  child: SpinningSquare(size: 50, color: Colors.lightGreenAccent,),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text('Spinning Square')
-              ],
-            ),
+              ),
+              'Spinning Square',
+            )
           ],
           physics: BouncingScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
+              crossAxisCount: 2, crossAxisSpacing: 10),
+          padding: EdgeInsets.all(10),
         ),
       ),
+    );
+  }
+
+  Widget customCard(Widget child, String name) {
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 4,
+                )
+              ]),
+          height: 100,
+          child: child,
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Text(name),
+      ],
     );
   }
 }
